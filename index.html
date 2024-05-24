@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="assets/fonts/fonts.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -12,31 +13,26 @@
 	</head>
 	<body>
 		<header class="header">
+			<img
+				class="header__img"
+				src="assets/img/frankfurt_coat_of_arms.png"
+				alt="Frankfurt Coat of arms"
+				title="Frankfurt Coat of arms"
+			/>
 			<nav class="header__nav">
-				<img
-					src="/assets/img/frankfurt_coat_of_arms.png"
-					alt="Frankfurt Coat of arms"
-				/>
-				<a
-					href="https://www.flaticon.com/free-icons/german"
-					title="german icons"
-					>German icons created by Eucalyp - Flaticon</a
-				>
 				<ul class="header__ul">
-					<li><a href="#">something</a></li>
-					<li><a href="#">something</a></li>
-					<li><a href="#">something</a></li>
-					<li><a href="#">something</a></li>
-					<li><a href="#">something</a></li>
-				</ul>
-				<ul class="header__ul-right">
-					<li>
-						<a href=""
-							><i class="fa-solid fa-magnifying-glass"></i
-						></a>
+					<li class="header__item"><a href="#">Home</a></li>
+					<li class="header__item">
+						<a href="#">Places of interest</a>
 					</li>
+					<li class="header__item"><a href="#">Travel</a></li>
 				</ul>
 			</nav>
+			<div class="menu-container">
+				<i class="fa-solid fa-xmark close-menu"></i>
+				<i class="fa-solid fa-bars open-menu"></i>
+			</div>
 		</header>
+		<script src="main.js"></script>
 	</body>
 </html>
