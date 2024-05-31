@@ -1,5 +1,6 @@
 :root {
 	--red: #d64045;
+	--light-red: #ff7b7b;
 	--white: #e7e7e7;
 	--orange: #ff9f1c;
 	--grey: #424b54;
@@ -31,7 +32,7 @@ body {
 	max-width: 40px;
 }
 
-.header i {
+.header__menu-container .menu {
 	font-size: 2rem;
 	position: relative;
 	z-index: 20;
@@ -60,23 +61,22 @@ body {
 	display: flex;
 }
 
-.header__ul {
+.nav__list {
 	position: relative;
 	list-style: none;
-	gap: 20px;
 	text-align: center;
 }
 
-.header__item {
+.nav__item {
 	margin: 30px;
 	font-size: 1.5rem;
 	font-weight: 500;
 }
 
-.header__item:first-child::before,
-.header__item:first-child::after,
-.header__item:nth-child(2)::before,
-.header__item:last-child::before {
+.nav__item:first-child::before,
+.nav__item:first-child::after,
+.nav__item:nth-child(2)::before,
+.nav__item:last-child::before {
 	content: "";
 	position: absolute;
 	top: -4.0625rem;
@@ -88,43 +88,88 @@ body {
 	animation: opacityChangeNavItem 2s both;
 }
 
-.header__item:first-child::after {
+.nav__item:first-child::after {
 	top: -4.875rem;
 	width: 40%;
 	right: 0;
 	margin: auto;
 }
 
-.header__item:nth-child(2)::before {
+.nav__item:nth-child(2)::before {
 	top: auto;
-	bottom: -4.875rem;
+	bottom: -78px;
 	width: 40%;
 	right: 0;
 	margin: auto;
 }
 
-.header__item:last-child::before {
+.nav__item:last-child::before {
 	top: auto;
 	bottom: -4.0625rem;
 }
 
-.header__item a {
+.nav__link {
+	position: relative;
 	text-decoration: none;
 	color: var(--white);
 }
+.nav__link:hover {
+	filter: drop-shadow(0 0 3px var(--grey)) drop-shadow(0 0 3px var(--grey))
+		contrast(1.2) saturate(2);
+}
+.nav__link:hover::before {
+	content: "";
+	width: 110%;
+	height: 0.125rem;
+	position: absolute;
+	right: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(30px);
+	background-color: var(--light-red);
+	animation: lowJumpIn 0.3s both;
+}
 
-.menu-container .hidden {
+.header__menu-container .hidden {
 	display: none;
 }
 
-.menu-container .close-menu {
+.header__menu-container .close-menu {
 	display: none;
 	animation: rotate 0.7s both;
 }
 
-.menu-container .shown {
+.header__menu-container .shown {
 	display: block;
 	margin-right: 2px;
+}
+
+/* Header Queries */
+
+@media screen and (min-width: 600px) {
+	.header {
+		flex-direction: row-reverse;
+	}
+	.header__menu-container {
+		display: none;
+	}
+	.header__nav {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		position: relative;
+		justify-content: left;
+	}
+	.nav__list {
+		display: flex;
+	}
+	.nav__item {
+		margin: 5px 10px;
+		font-size: 1.125rem;
+		font-weight: 500;
+	}
+	.nav__link:hover::before {
+		transform: translateX(-50%) translateY(23px);
+	}
 }
 
 /* Animations */
@@ -192,6 +237,21 @@ body {
 	60% {
 		opacity: 0.6;
 		top: -10px;
+	}
+	100% {
+		opacity: 1;
+		top: 0;
+	}
+}
+
+@keyframes lowJumpIn {
+	0% {
+		opacity: 0;
+		top: 15px;
+	}
+	60% {
+		opacity: 0.6;
+		top: -5px;
 	}
 	100% {
 		opacity: 1;
