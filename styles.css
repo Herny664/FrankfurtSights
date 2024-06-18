@@ -374,7 +374,7 @@ body.no-scroll {
 		grid-row-start: 2;
 		grid-row-end: 5;
 	}
-	.main__img-container:nth-of-type(2) {
+	.--second-img-container {
 		grid-column-start: 1;
 	}
 }
